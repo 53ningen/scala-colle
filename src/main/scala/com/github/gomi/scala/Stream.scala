@@ -3,7 +3,7 @@ package com.github.gomi.scala
 /**
  * Stream
  */
-trait Stream[+A] {
+sealed trait Stream[+A] {
 
   def toList: List[A] = {
     def go(s: Stream[A], l: List[A]): List[A] = s match {
@@ -11,6 +11,11 @@ trait Stream[+A] {
       case _ => l
     }
     go(this, List()).reverse
+  }
+
+  def fmap[B](f: A => B): Stream[B] = this match {
+    case Cons(x, xs) => Cons(() => f(x()), () => xs().fmap(f))
+    case Nil => Nil
   }
 
 }

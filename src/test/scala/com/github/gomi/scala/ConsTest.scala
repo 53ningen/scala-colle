@@ -18,6 +18,13 @@ class ConsTest extends org.specs2.mutable.Specification {
       cons(1, cons(2, Nil)).toList mustEqual List(1, 2)
     }
 
+    "fmap" in {
+      Nil.fmap(x => x).toList mustEqual List()
+      cons(1, Nil).fmap(x => 2 * x).toList mustEqual List(2)
+      cons(1, cons(2, Nil)).fmap(x => 2 * x).toList mustEqual List(2, 4)
+      cons(1, cons(2, Nil)).fmap(x => 2 * x).fmap(y => y.toString).toList mustEqual List("2", "4")
+    }
+
   }
 
 }
