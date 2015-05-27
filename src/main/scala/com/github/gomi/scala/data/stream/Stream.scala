@@ -1,4 +1,4 @@
-package com.github.gomi.scala
+package com.github.gomi.scala.data.stream
 
 /**
  * Stream
