@@ -14,8 +14,8 @@ sealed trait Stream[+A] {
   }
 
   def fmap[B](f: A => B): Stream[B] = this match {
-    case Cons(x, xs) => Cons(() => f(x()), () => xs().fmap(f))
     case Nil => Nil
+    case Cons(x, xs) => Cons(() => f(x()), () => xs().fmap(f))
   }
 
 }
