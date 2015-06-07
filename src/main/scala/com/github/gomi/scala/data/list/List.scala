@@ -33,6 +33,7 @@ object List {
       case Nil => buf
       case Cons(h, t) => go(t, Cons(f(h), buf))
     }
+    def hoge(): Unit = {}
     go(l, Nil).reverse
   }
 
