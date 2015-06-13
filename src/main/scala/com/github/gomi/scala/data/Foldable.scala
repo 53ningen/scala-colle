@@ -1,5 +1,7 @@
 package com.github.gomi.scala.data
 
+import scala.language.higherKinds
+
 trait Foldable[F[_]] {
 
   import Monoid._
