@@ -11,3 +11,7 @@ scala-colle
 
 * Stream
 * Monoid
+* Foldable
+* Functor
+* Par
+* Nat
